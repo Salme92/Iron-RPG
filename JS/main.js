@@ -8,13 +8,19 @@ $(document).ready(function() {
     $('#stage').show();
     $('#nameCharacter').show();
     $('#nameCharacter').text(name);
+    $('#nameEnemyOne').show();
+    $('#nameEnemyOne').text(enemyOne.nameEnemy);
     $('#HP').text('HP: ' + heroMain.health);
+    $('#HP_Enemy').text('HP: ' + enemyOne.healthEnemy);
     $('.Fight_Menu').show();
-    })
-    heroMain = new MainCharacter(200, 100, 50, name);
-    enemyOne = new Enemies(120, 30, 25, 'Gnome'); 
+    });
+
+    
+
+    enemyOne = new Enemies(160, 30, 25, 'Centaur'); 
     enemyTwo = new Enemies(220, 60, 50, 'Bengal');
     enemyThree = new Enemies(260, 120, 90, 'Abrazador');
+    heroMain = new MainCharacter(200, 100, 50, name);
 
     //Meter los enemigos en un array y que cuando un enemigo sea derrotado saque al siguiente.
 

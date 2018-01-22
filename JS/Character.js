@@ -5,12 +5,12 @@ function MainCharacter(health,attack,defense,name){
     this.name = name;
 }
 
-MainCharacter.prototype.attack = function(){
-    return this.attack;
+MainCharacter.prototype.ataque = function(){
+    enemyOne.damageReceive();
 }
 
 MainCharacter.prototype.defense = function(){
-   return this.defense;
+    this.defense += 25;
 }
 
 MainCharacter.prototype.damageReceive = function(attackEnemy){

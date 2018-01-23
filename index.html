@@ -8,15 +8,16 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/Character.js"></script>
+    <script src="js/ActorStatus.js"></script>
+    <script src="js/MainCharacter.js"></script>
     <script src="js/Enemy.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/Game.js"></script>
     <title>IronRPG</title>
 </head>
 <body>
     <div id="crystals"></div>
-    <audio autoplay="true"><source src="main_theme.ogg" type="audio/ogg" id="MainTheme"></audio>
-    <audio><source src="fight_theme.ogg" type="audio/ogg" id="FightTheme"></audio>
+    <!-- <audio><source src="main_theme.ogg" type="audio/ogg" id="MainTheme"></audio>
+    <audio><source src="fight_theme.ogg" type="audio/ogg" id="FightTheme"></audio> -->
     <div class="container">
         <div class="row">
             <div class="col-sm-12"><h3 id="title-game">IronRPG</h3></div>
@@ -25,7 +26,7 @@
 
     <div id="stage">
         <div class="row">
-            <p id="level">Level:</p>
+            <p id="level"></p>
             <div class="characterDiv">
                 <p id="nameCharacter"></p>
                 <img src="./images/sprites/main/squall_still.png" alt="main character" id="character" />
@@ -50,5 +51,6 @@
         </div>
     </div>
     <script src="js/actions.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

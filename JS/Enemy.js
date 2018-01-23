@@ -1,29 +1,44 @@
-function Enemies(health,attack,defense,name){
-    this.healthEnemy = health;
-    this.attackEnemy = attack;
-    this.defenseEnemy = defense;
-    this.nameEnemy = name;
+function Enemy(actorStatus,name,game){
+    this.status = actorStatus;
+    this.name = name;
+    this.game = game;
 }
 
-Enemies.prototype.ataque = function(healthEnemy){
-    this.attack -= heroMain.health;
-    $('#HP').text('HP: ' + heroMain.health);
-}
+Enemy.prototype.doActionRandom = function(){
+    var types = ['atack','defense'];
+    for(i = 0; i < types.length; i++){
+       var randomSelected = Math.floor(Math.random(types[i].length));
+    }
+    var selectedAction = randomSelected;
+    var v = 10;
 
-Enemies.prototype.defense = function(){
-   return this.defenseEnemy;
-}
+    console.log("Enemy does action");
+    console.log(selectedAction,v);
 
-Enemies.prototype.damageReceive = function(attack){
-    this.healthEnemy -= heroMain.attack;
-    $('#HP_Enemy').text('HP: ' + enemyOne.healthEnemy);
-}
+    switch(selectedAction){
+        case "attack":
+            game.player.reciveAction({type:'attack',value:v});
+        break;
+        case "defense":
+            this.enableDefense = true;
+        break;
+    }
+};
 
+Enemy.prototype.receiveAction = function(action){
+    console.log("Enemy recives action");
+    console.log(action);
+    switch(action.type){
+        case "attack":
+            if(this.status.enableDefense){
+                console.log("this guy is defending itself, ignore attack");
+            }else{
+                this.health -= action.value;
+            }
+        break;
+    }
+};
 
-MainCharacter.prototype.objectos = function(){
-
-}
-
-if(this.healthEnemy == 0){
-    alert('World have been save of darkness!');
+Enemy.prototype.endTurno = function(){
+    this.status.enableDefense = false;
 }

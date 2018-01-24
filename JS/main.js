@@ -1,7 +1,7 @@
 var game = new Game();
 
 $(document).ready(function () {
-    $('#start-game').click(function() {
+    $('#start-game').click(function () {
         name = prompt('Hi young soldier... Tell me, What is your name?');
         $('#start-game').hide();
         $('#title-game').hide();
@@ -16,10 +16,15 @@ $(document).ready(function () {
     });
 });
 
-$("#btn_at").click(function(action){
-    MainCharacter.doAction("attack");
+$("#btn_at").click(function (action) {
+    game.player.doAction("attack");
 });
 
-$('#btn_def').click(function(){
-    heroMain.defense();
+$('#btn_def').click(function (action) {
+    game.player.doAction("defense");
+    $('#character').attr('src', 'images/FFBE_Squall_defense.png');
 });
+
+$('#btn_mag').click(function (action) {
+    game.player.doAction("magic");
+})

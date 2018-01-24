@@ -1,34 +1,49 @@
-function MainCharacter(actorStatus,name,game){
+function MainCharacter(actorStatus, name, game) {
     this.status = actorStatus;
     this.name = name;
     this.game = game;
 };
 
-MainCharacter.prototype.doAction = function(action){
-    switch(action){
+MainCharacter.prototype.doAction = function (action) {
+    switch (action) {
         case "attack":
-        console.log("Entro a Attack");
-            game.enemies.reciveAction({type:'attack',value:this.attack});
-        break;
+            if (game.enemies[0].status.health <= 0) {
+                return false;
+            } else {
+                $(".characterDiv").animate({ left: '950px' }, 1000);
+                this.game.enemies[0].receiveAction({ type: 'attack', value: this.status.attack });
+                $(".characterDiv").animate({ left: '250px' }, 1000);
+            }
+            break;
         case "defense":
             this.enableDefense = true;
-        break;
+            console.log(this.enableDefense);
+            break;
+        case "magic":
+            if (game.enemies[0].status.health <= 0) {
+                return false;
+            } else {
+                this.game.enemies[0].receiveAction({ type: 'magic', value: this.status.magic });
+                console.log("Magia lanzada");
+                $('#character').attr('src', "../images/")
+            }
+            break;
     }
 };
 
-MainCharacter.prototype.receiveAction = function(action){
-    switch(action.type){
-        case "atack":
-            if(this.status.enableDefense){
+MainCharacter.prototype.receiveAction = function (action) {
+    switch (action.type) {
+        case "attack":
+            if (this.status.enableDefense) {
                 console.log("this guy is defending itself, ignore attack");
-            }else{
+            } else {
                 this.health -= action.value;
             }
-        break;
+            break;
     }
 };
 
-MainCharacter.prototype.endTurno = function(){
+MainCharacter.prototype.endTurno = function () {
     this.status.enableDefense = false;
 }
 

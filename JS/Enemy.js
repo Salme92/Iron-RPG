@@ -1,44 +1,60 @@
-function Enemy(actorStatus,name,game){
+function Enemy(actorStatus, name, game) {
     this.status = actorStatus;
     this.name = name;
     this.game = game;
 }
 
-Enemy.prototype.doActionRandom = function(){
-    var types = ['atack','defense'];
-    for(i = 0; i < types.length; i++){
-       var randomSelected = Math.floor(Math.random(types[i].length));
+Enemy.prototype.doActionRandom = function () {
+    var types = ['attack', 'defense'];
+    for (i = 0; i < types.length; i++) {
+        var randomSelected = Math.floor(Math.random(types[i].length));
     }
     var selectedAction = randomSelected;
     var v = 10;
 
     console.log("Enemy does action");
-    console.log(selectedAction,v);
+    console.log(selectedAction, v);
 
-    switch(selectedAction){
+    switch (selectedAction) {
         case "attack":
-            game.player.reciveAction({type:'attack',value:v});
-        break;
+            game.player.receiveAction({ type: 'attack', value: v });
+            break;
         case "defense":
             this.enableDefense = true;
-        break;
+            break;
     }
 };
 
-Enemy.prototype.receiveAction = function(action){
-    console.log("Enemy recives action");
+Enemy.prototype.receiveAction = function (action) {
     console.log(action);
-    switch(action.type){
+    switch (action.type) {
         case "attack":
-            if(this.status.enableDefense){
+            if (this.status.enableDefense) {
                 console.log("this guy is defending itself, ignore attack");
-            }else{
-                this.health -= action.value;
+            } else {
+                console.log(this.status);
+                game.enemies[0].status.health -= action.value;
+                $('#HP_Enemy').text('HP: ' + game.enemies[0].status.health);
+                console.log(this.status);
+                if (this.status.health >= 0) {
+                    this.status.health == 0;
+                }
             }
-        break;
+            break;
+        case "magic":
+            if (this.status.enableDefense) {
+                console.log("this guy is defending itself, ignore attack");
+            } else {
+                game.enemies[0].status.health -= action.value;
+                $('#HP_Enemy').text('HP: ' + game.enemies[0].status.health);
+                console.log(this.status);
+                if (this.status.health >= 0) {
+                    $('#HP_Enemy').text('HP: ' + game.enemies[0].status.health);
+                }
+            }
     }
 };
 
-Enemy.prototype.endTurno = function(){
+Enemy.prototype.endTurno = function () {
     this.status.enableDefense = false;
 }

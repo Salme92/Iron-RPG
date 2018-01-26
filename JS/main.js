@@ -33,7 +33,7 @@ $("#btn_at").click(function (action) {
 
     }else{
         game.player.doAction("attack");
-        $('#character').attr('src', 'images/FFBE_Cloud_attack.gif');
+        $('#character').attr('src', 'images/FFBE_Cloud_Attack.gif');
         setInterval(function() {
             $('#character').attr('src', 'images/cloud.gif');
       }, 3000);

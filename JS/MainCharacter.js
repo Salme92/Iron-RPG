@@ -28,8 +28,11 @@ MainCharacter.prototype.doAction = function (action) {
                 return false;
             } else {
                 $('#fire_mag').show();
+                $('#fire_mag').animate( { left: '950px' }, 1000);
                 this.game.enemies[0].receiveAction({ type: 'magic', value: this.status.magic });
-                $('#fire_mag').animate( { left: '950px' }, 1000)
+                setInterval(function() {
+                    $('#fire_mag').hide();
+              }, 1000);
                 this.game.nextTurn();
 
             }

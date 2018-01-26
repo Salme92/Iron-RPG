@@ -1,11 +1,16 @@
 var game = new Game();
 var bgNew = "./images/bg_fight.jpg";
 
+var audio = new Audio('./sounds/fight_theme.ogg');
+var audioWin = new Audio('./sounds/win.ogg');
+
+
 $(document).ready(function () {
     $('#start-game').click(function () {
         name = prompt('Hi young soldier... Tell me, What is your name?');
         $('#start-game').hide();
         $('#title-game').hide();
+        audio.play();
         $('#stage').show();
         $("body").css('background-image', 'url(' + bgNew + ')');
         $('#MainTheme').stop();
@@ -20,11 +25,19 @@ $(document).ready(function () {
 });
 
 $("#btn_at").click(function (action) {
-    game.player.doAction("attack");
-    $('#character').attr('src', 'images/FFBE_Cloud_attack.gif');
-    setInterval(function() {
-        $('#character').attr('src', 'images/cloud.gif');
-  }, 3000);
+    if(game.enemies[0].status.health <= 0){
+        $('.winText').show();
+        audio.pause();
+        audio.currentTime = 0;
+        audioWin.play();
+
+    }else{
+        game.player.doAction("attack");
+        $('#character').attr('src', 'images/FFBE_Cloud_attack.gif');
+        setInterval(function() {
+            $('#character').attr('src', 'images/cloud.gif');
+      }, 3000);
+    }
 });
 
 $('#btn_def').click(function (action) {
@@ -37,8 +50,6 @@ $('#btn_def').click(function (action) {
 
 $('#btn_mag').click(function (action) {
     game.player.doAction("magic");
-    var fireSound = "./sounds/magic_sound";
-    $(fireSound).load();
 })
 
 $('#white_mag').click(function(action){

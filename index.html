@@ -17,7 +17,7 @@
 <body>
     <div id="crystals"></div>
     <audio autoplay="true" id="MainTheme"><source src="./sounds/main_theme.ogg" type="audio/ogg" ></audio>
-    <audio id="FightTheme"><source src="./sounds/fight_theme.ogg" type="audio/ogg"></audio>
+    <audio><source src="./sounds/fight_theme.ogg" id="FightTheme" type="audio/ogg"></audio>
     <div class="container">
         <div class="row">
             <div class="col-sm-12" id="start-game"><button>Start Game</button></div>
@@ -41,6 +41,9 @@
             </div>
             <div class="magDiv">
                 <img src="./images/FFBE_Magic_FIRE.gif" alt="main character" id="fire_mag" />
+            </div>
+            <div class="winText">
+                <p>You have saved the world!</p>
             </div>
         </div>
     </div>

@@ -16,11 +16,10 @@
 </head>
 <body>
     <div id="crystals"></div>
-    <!-- <audio><source src="main_theme.ogg" type="audio/ogg" id="MainTheme"></audio>
-    <audio><source src="fight_theme.ogg" type="audio/ogg" id="FightTheme"></audio> -->
+    <audio autoplay="true" id="MainTheme"><source src="./sounds/main_theme.ogg" type="audio/ogg" ></audio>
+    <audio id="FightTheme"><source src="./sounds/fight_theme.ogg" type="audio/ogg"></audio>
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"><h3 id="title-game">IronRPG</h3></div>
             <div class="col-sm-12" id="start-game"><button>Start Game</button></div>
         </div>
 
@@ -29,13 +28,19 @@
             <p id="level"></p>
             <div class="characterDiv">
                 <p id="nameCharacter"></p>
-                <img src="./images/sprites/main/squall_still.png" alt="main character" id="character" />
+                <img src="./images/cloud.gif" alt="main character" id="character" />
                 <p id="HP"></p>
+                <div id="myProgress">
+                        <div id="myBar"></div>
+                </div>
             </div>
             <div class="enemyDiv">
                 <p id="nameEnemyOne"></p>
-                <img src="./images/centaur.png" alt="enemy1" id="enemyOne" />
+                <img src="./images/sephirot.gif" alt="enemy1" id="enemyOne" />
                 <p id="HP_Enemy"></p>
+            </div>
+            <div class="magDiv">
+                <img src="./images/FFBE_Magic_FIRE.gif" alt="main character" id="fire_mag" />
             </div>
         </div>
     </div>
@@ -46,7 +51,7 @@
                 <button id="btn_at">Attack</button>
                 <button id="btn_def">Defense</button>
                 <button id="btn_mag">Magic</button>
-                <button>Object</button>
+                <button id="white_mag">White Magic Cure++</button>
             </div>
         </div>
     </div>

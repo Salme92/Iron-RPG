@@ -6,11 +6,11 @@ function Enemy(actorStatus, name, game) {
 
 Enemy.prototype.doActionRandom = function () {
     var types = ['attack', 'defense'];
-    for (i = 0; i < types.length; i++) {
-        var randomSelected = Math.floor(Math.random(types[i].length));
+    for (i = 0; i < 1; i++) {
+        var randomSelected = Math.floor(Math.random(i));
     }
-    var selectedAction = randomSelected;
-    var v = 10;
+    var selectedAction = types[randomSelected];
+    var v = this.status.attack;
 
     console.log("Enemy does action");
     console.log(selectedAction, v);

@@ -35,7 +35,7 @@ $("#btn_at").click(function (action) {
         game.player.doAction("attack");
         $('#character').attr('src', 'images/FFBE_Cloud_Attack.gif');
         setInterval(function() {
-            $('#character').attr('src', 'images/cloud.gif');
+            $('#character').attr('src', 'images/Cloud.gif');
       }, 3000);
     }
 });
@@ -56,7 +56,7 @@ $('#white_mag').click(function(action){
     game.player.doAction("cure");
     $('#white_mag').attr('src', 'images/FFBE_Cloud_Cure.gif');
     setInterval(function() {
-        $('#white_mag').attr('src', 'images/cloud.gif');
+        $('#white_mag').attr('src', 'images/Cloud.gif');
   }, 3000);
     
 })
